@@ -1,4 +1,19 @@
-# IoT-Weather-Monitoring-System
+# IoT Weather Monitoring & Automation System
+
+**End-to-End IoT Solution with Smart Environmental Control**  
+*ESP32 Embedded System → Python/MySQL Backend → Automated Actions*
+
+## System Overview
+
+A robust IoT architecture that:
+1. **Collects** environmental data via ESP32 + sensors
+2. **Processes** data on a Python/Flask server with user authentication
+3. **Stores** measurements in a MySQL database (time-series format)
+4. **Triggers** smart actions based on configurable thresholds
+5. **Visualizes** data through a secure web dashboard
+
+
+
 
 The ESP32 receives measurements from the LM35 temperature sensor and the YL-38 rain sensor. It sends the temperature value to the server, as well as a value of 1 in case of rain and 0 when there is no rain.
 
