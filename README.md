@@ -36,6 +36,8 @@ def addvalue():
         if temp > 24: return 'Turn on A/C'
         elif temp < 22: return 'Turn off A/C'
         if rain_detected(): send_rain_alert()
+```
+
 
 The ESP32 receives measurements from the LM35 temperature sensor and the YL-38 rain sensor. It sends the temperature value to the server, as well as a value of 1 in case of rain and 0 when there is no rain.
 
