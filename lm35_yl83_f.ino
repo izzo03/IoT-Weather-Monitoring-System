@@ -87,7 +87,7 @@ void loop() {
       else
         Serial.println("The rain is detected");
 
-      //Send HTTP GET request
+      //Send HTTP POST request
       int httpResponseCode = http.POST(sendPostBody);
 
 
