@@ -12,8 +12,30 @@ A robust IoT architecture that:
 4. **Triggers** smart actions based on configurable thresholds
 5. **Visualizes** data through a secure web dashboard
 
+## Technical Highlights
 
+### Embedded System (ESP32)
+- **Precision Sensing**:
+  - LM35 Temperature Sensor (±0.5°C accuracy)
+  - YL-38 Rain Detection (Digital trigger)
+- **Optimized Communication**:
+  - HTTP POST every 5 minutes (300k ms interval)
+  - JSON payload compression
+  - WiFi reconnection logic
 
+### Backend (Python/Flask)
+```python
+@app.route('/addvalue', methods=['POST'])
+def addvalue():
+    # Data validation
+    if cleartext['server_id'] == 'S03237a':
+        # Database insertion
+        mycursor.execute("INSERT INTO sensors24 VALUES (%s,%s,%s,%s)", 
+                        (device, temp, rain_status, timestamp))
+        # Smart Actions:
+        if temp > 24: return 'Turn on A/C'
+        elif temp < 22: return 'Turn off A/C'
+        if rain_detected(): send_rain_alert()
 
 The ESP32 receives measurements from the LM35 temperature sensor and the YL-38 rain sensor. It sends the temperature value to the server, as well as a value of 1 in case of rain and 0 when there is no rain.
 
